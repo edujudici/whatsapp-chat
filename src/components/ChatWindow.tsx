@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ScrollArea } from './ui/scroll-area';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Send, User } from 'lucide-react';
 import { format } from 'date-fns';
-import { Avatar, AvatarFallback } from './ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 interface Message {
   id: string;
