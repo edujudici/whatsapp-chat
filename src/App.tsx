@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { WhatsAppManager } from '@/components/WhatsAppManager';
-import { ChatList } from '@/components/ChatList';
-import { ChatWindow } from '@/components/ChatWindow';
-import { wahaService } from '@/services/wahaService';
-import { Toaster } from '@/components/ui/sonner';
+import { WhatsAppManager } from '@/components/WhatsAppManager.tsx';
+import { ChatList } from '@/components/ChatList.tsx';
+import { ChatWindow } from '@/components/ChatWindow.tsx';
+import { wahaService } from '@/services/wahaService.ts';
+import { Toaster } from '@/components/ui/sonner.tsx';
 import { toast } from 'sonner';
 import { MessageSquare, Settings } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button.tsx';
 
 export default function App() {
   const [instanceName, setInstanceName] = useState<string | null>(null);

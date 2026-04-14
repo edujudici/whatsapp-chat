@@ -1,7 +1,7 @@
 import React from 'react';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
+import { ScrollArea } from '@/components/ui/scroll-area.tsx';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.tsx';
+import { Badge } from '@/components/ui/badge.tsx';
 import { format } from 'date-fns';
 
 interface Chat {
