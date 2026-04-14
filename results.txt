@@ -1,0 +1,95 @@
+node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.js: * Adds caching capability to a SignalKeyStore
+node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.js:export function makeCacheableSignalKeyStore(store, logger, _cache) {
+node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.js: * Adds DB like transaction capability (https://en.wikipedia.org/wiki/Database_transaction) to the SignalKeyStore,
+node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.js: * @returns SignalKeyStore with transaction capability
+node_modules/@whiskeysockets/baileys/lib/Utils/process-message.js:const processMessage = async (message, { shouldProcessHistoryMsg, placeholderResendCache, ev, creds, keyStore, logger, options }) => {
+node_modules/@whiskeysockets/baileys/lib/Utils/process-message.js:                    await keyStore.transaction(async () => {
+node_modules/@whiskeysockets/baileys/lib/Utils/process-message.js:                            await keyStore.set({ 'app-state-sync-key': { [strKeyId]: keyData } });
+node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.d.ts:import type { AuthenticationCreds, CacheStore, SignalKeyStore, SignalKeyStoreWithTransaction, TransactionCapabilityOptions } from '../Types/index.js';
+node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.d.ts: * Adds caching capability to a SignalKeyStore
+node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.d.ts:export declare function makeCacheableSignalKeyStore(store: SignalKeyStore, logger?: ILogger, _cache?: CacheStore): SignalKeyStore;
+node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.d.ts: * Adds DB like transaction capability (https://en.wikipedia.org/wiki/Database_transaction) to the SignalKeyStore,
+node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.d.ts: * @returns SignalKeyStore with transaction capability
+node_modules/@whiskeysockets/baileys/lib/Utils/auth-utils.d.ts:export declare const addTransactionCapability: (state: SignalKeyStore, logger: ILogger, { maxCommitRetries, delayBetweenTriesMs }: TransactionCapabilityOptions) => SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Utils/process-message.d.ts:import type { AuthenticationCreds, BaileysEventEmitter, CacheStore, SignalKeyStoreWithTransaction } from '../Types/index.js';
+node_modules/@whiskeysockets/baileys/lib/Utils/process-message.d.ts:    placeholderResendCache?: CacheStore;
+node_modules/@whiskeysockets/baileys/lib/Utils/process-message.d.ts:    keyStore: SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Utils/process-message.d.ts:declare const processMessage: (message: proto.IWebMessageInfo, { shouldProcessHistoryMsg, placeholderResendCache, ev, creds, keyStore, logger, options }: ProcessMessageContext) => Promise<void>;
+node_modules/@whiskeysockets/baileys/lib/Utils/signal.d.ts:import type { AuthenticationCreds, AuthenticationState, KeyPair, SignalIdentity, SignalKeyStore, SignedKeyPair } from '../Types/Auth.js';
+node_modules/@whiskeysockets/baileys/lib/Utils/signal.d.ts:export declare const getPreKeys: ({ get }: SignalKeyStore, min: number, limit: number) => Promise<{
+node_modules/@whiskeysockets/baileys/lib/Types/Auth.d.ts:export type SignalKeyStore = {
+node_modules/@whiskeysockets/baileys/lib/Types/Auth.d.ts:export type SignalKeyStoreWithTransaction = SignalKeyStore & {
+node_modules/@whiskeysockets/baileys/lib/Types/Auth.d.ts:    keys: SignalKeyStore | SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Types/Auth.d.ts:    keys: SignalKeyStore;
+node_modules/@whiskeysockets/baileys/lib/Types/Message.d.ts:import type { CacheStore } from './Socket.js';
+node_modules/@whiskeysockets/baileys/lib/Types/Message.d.ts:    mediaCache?: CacheStore;
+node_modules/@whiskeysockets/baileys/lib/Types/Socket.d.ts:export type CacheStore = {
+node_modules/@whiskeysockets/baileys/lib/Types/Socket.d.ts:    /** transaction capability options for SignalKeyStore */
+node_modules/@whiskeysockets/baileys/lib/Types/Socket.d.ts:    mediaCache?: CacheStore;
+node_modules/@whiskeysockets/baileys/lib/Types/Socket.d.ts:    msgRetryCounterCache?: CacheStore;
+node_modules/@whiskeysockets/baileys/lib/Types/Socket.d.ts:    userDevicesCache?: CacheStore;
+node_modules/@whiskeysockets/baileys/lib/Types/Socket.d.ts:    callOfferCache?: CacheStore;
+node_modules/@whiskeysockets/baileys/lib/Types/Socket.d.ts:    placeholderResendCache?: CacheStore;
+node_modules/@whiskeysockets/baileys/lib/WAM/constants.js:        name: 'AdvStoredTimestampExpired',
+node_modules/@whiskeysockets/baileys/lib/WAM/constants.js:            overallBackendStore: [
+node_modules/@whiskeysockets/baileys/lib/Socket/chats.js:                keyStore: authState.keys,
+node_modules/@whiskeysockets/baileys/lib/Socket/business.d.ts:        keys: import("../index.js").SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Socket/chats.d.ts:        keys: import("../Types/index.js").SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Socket/communities.d.ts:        keys: import("../Types/index.js").SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Socket/groups.d.ts:        keys: import("../Types/index.js").SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Socket/index.d.ts:        keys: import("../index.js").SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Socket/messages-recv.d.ts:        keys: import("../Types/index.js").SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Socket/messages-send.d.ts:        keys: import("../Types/index.js").SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Socket/newsletter.d.ts:        keys: import("../index.js").SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Socket/socket.d.ts:        keys: import("../Types/index.js").SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Socket/usync.d.ts:        keys: import("../index.js").SignalKeyStoreWithTransaction;
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group_cipher.js:    constructor(senderKeyStore, senderKeyName) {
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group_cipher.js:        this.senderKeyStore = senderKeyStore;
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group_cipher.js:            const record = await this.senderKeyStore.loadSenderKey(this.senderKeyName);
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group_cipher.js:            await this.senderKeyStore.storeSenderKey(this.senderKeyName, record);
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group_cipher.js:            const record = await this.senderKeyStore.loadSenderKey(this.senderKeyName);
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group_cipher.js:            await this.senderKeyStore.storeSenderKey(this.senderKeyName, record);
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group-session-builder.js:    constructor(senderKeyStore) {
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group-session-builder.js:        this.senderKeyStore = senderKeyStore;
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group-session-builder.js:        const senderKeyRecord = await this.senderKeyStore.loadSenderKey(senderKeyName);
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group-session-builder.js:        await this.senderKeyStore.storeSenderKey(senderKeyName, senderKeyRecord);
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group-session-builder.js:        const senderKeyRecord = await this.senderKeyStore.loadSenderKey(senderKeyName);
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group-session-builder.js:            await this.senderKeyStore.storeSenderKey(senderKeyName, senderKeyRecord);
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group_cipher.d.ts:export interface SenderKeyStore {
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group_cipher.d.ts:    private readonly senderKeyStore;
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group_cipher.d.ts:    constructor(senderKeyStore: SenderKeyStore, senderKeyName: SenderKeyName);
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group-session-builder.d.ts:interface SenderKeyStore {
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group-session-builder.d.ts:    private readonly senderKeyStore;
+node_modules/@whiskeysockets/baileys/lib/Signal/Group/group-session-builder.d.ts:    constructor(senderKeyStore: SenderKeyStore);
+node_modules/@whiskeysockets/baileys/WAProto/index.js:             * @property {proto.Message.InteractiveMessage.IShopMessage|null} [shopStorefrontMessage] InteractiveMessage shopStorefrontMessage
+node_modules/@whiskeysockets/baileys/WAProto/index.js:             * InteractiveMessage shopStorefrontMessage.
+node_modules/@whiskeysockets/baileys/WAProto/index.js:             * @member {proto.Message.InteractiveMessage.IShopMessage|null|undefined} shopStorefrontMessage
+node_modules/@whiskeysockets/baileys/WAProto/index.js:            InteractiveMessage.prototype.shopStorefrontMessage = null;
+node_modules/@whiskeysockets/baileys/WAProto/index.js:             * @member {"shopStorefrontMessage"|"collectionMessage"|"nativeFlowMessage"|"carouselMessage"|undefined} interactiveMessage
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                get: $util.oneOfGetter($oneOfFields = ["shopStorefrontMessage", "collectionMessage", "nativeFlowMessage", "carouselMessage"]),
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                if (message.shopStorefrontMessage != null && Object.hasOwnProperty.call(message, "shopStorefrontMessage"))
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                    $root.proto.Message.InteractiveMessage.ShopMessage.encode(message.shopStorefrontMessage, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                            message.shopStorefrontMessage = $root.proto.Message.InteractiveMessage.ShopMessage.decode(reader, reader.uint32());
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                if (message.shopStorefrontMessage != null && message.hasOwnProperty("shopStorefrontMessage")) {
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                        let error = $root.proto.Message.InteractiveMessage.ShopMessage.verify(message.shopStorefrontMessage);
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                            return "shopStorefrontMessage." + error;
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                if (object.shopStorefrontMessage != null) {
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                    if (typeof object.shopStorefrontMessage !== "object")
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                        throw TypeError(".proto.Message.InteractiveMessage.shopStorefrontMessage: object expected");
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                    message.shopStorefrontMessage = $root.proto.Message.InteractiveMessage.ShopMessage.fromObject(object.shopStorefrontMessage);
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                if (message.shopStorefrontMessage != null && message.hasOwnProperty("shopStorefrontMessage")) {
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                    object.shopStorefrontMessage = $root.proto.Message.InteractiveMessage.ShopMessage.toObject(message.shopStorefrontMessage, options);
+node_modules/@whiskeysockets/baileys/WAProto/index.js:                        object.interactiveMessage = "shopStorefrontMessage";
+node_modules/@whiskeysockets/baileys/WAProto/WAProto.proto:            Message.InteractiveMessage.ShopMessage shopStorefrontMessage = 4;
+node_modules/@whiskeysockets/baileys/WAProto/index.d.ts:            /** InteractiveMessage shopStorefrontMessage */
+node_modules/@whiskeysockets/baileys/WAProto/index.d.ts:            shopStorefrontMessage?: (proto.Message.InteractiveMessage.IShopMessage|null);
+node_modules/@whiskeysockets/baileys/WAProto/index.d.ts:            /** InteractiveMessage shopStorefrontMessage. */
+node_modules/@whiskeysockets/baileys/WAProto/index.d.ts:            public shopStorefrontMessage?: (proto.Message.InteractiveMessage.IShopMessage|null);
+node_modules/@whiskeysockets/baileys/WAProto/index.d.ts:            public interactiveMessage?: ("shopStorefrontMessage"|"collectionMessage"|"nativeFlowMessage"|"carouselMessage");
+node_modules/@whiskeysockets/baileys/README.md:- [Implementing a Data Store](#implementing-a-data-store)
+node_modules/@whiskeysockets/baileys/README.md:        getMessage: async (key) => await getMessageFromStore(key)
+node_modules/@whiskeysockets/baileys/README.md:## Implementing a Data Store
+node_modules/@whiskeysockets/baileys/README.md:import makeWASocket, { makeInMemoryStore } from '@whiskeysockets/baileys'
+node_modules/@whiskeysockets/baileys/README.md:const store = makeInMemoryStore({ })
+node_modules/@whiskeysockets/baileys/README.md:- `makeCacheableSignalKeyStore`, make auth store more fast
+node_modules/@whiskeysockets/baileys/README.md:const msg = getMessageFromStore() // implement this on your end

@@ -1,0 +1,6 @@
+{
+  "name": "WhatsApp MVP",
+  "description": "A simple WhatsApp messaging MVP using WAHA API. Connect instances, view chats, and send/receive messages.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
