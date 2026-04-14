@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { wahaService } from '@/services/wahaService.ts';
-import { Button } from '@/components/ui/button.tsx';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card.tsx';
-import { Badge } from '@/components/ui/badge.tsx';
+import { wahaService } from '@/services/wahaService';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { RefreshCw, Power, PowerOff, QrCode } from 'lucide-react';
 import { toast } from 'sonner';
 
